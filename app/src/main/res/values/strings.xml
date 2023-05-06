@@ -8,4 +8,10 @@
     <string name="app_name">My Pokemons</string>
     <string name="welcome_title">Welcome to &appname;</string>
     <string name="welcome_text">This is an app displaying Pokemons and their details. Developed by &devname;</string>
+
+    <string name="pokemons">Pokemons</string>
+
+<!--    region Pokemon details-->
+    <string name="name">Name</string>
+<!--    endregion-->
 </resources>

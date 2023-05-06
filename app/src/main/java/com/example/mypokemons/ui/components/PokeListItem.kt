@@ -24,7 +24,7 @@ fun PokeListItem(name: String, clickAction: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(dimensionResource(id = R.dimen.padding_default))
+//            .padding(dimensionResource(id = R.dimen.padding_default))
             .background(color = MaterialTheme.colors.secondary)
             .padding(8.dp)
             .clickable { clickAction.invoke() }

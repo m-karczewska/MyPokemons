@@ -1,28 +1,78 @@
 package com.example.mypokemons.ui.pokelist
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.ui.res.stringResource
+import com.example.mypokemons.R
+import com.example.mypokemons.data.PokemonListItem
+import com.example.mypokemons.ui.components.PokeList
 import com.example.mypokemons.ui.theme.MyPokemonsTheme
 
 class PokeListActivity : ComponentActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContent {
             MyPokemonsTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    //TODO empty view
+                Scaffold(
+                    topBar = {
+                        TopAppBar(title = { Text(text = stringResource(R.string.pokemons)) })
+                    }
+                ) { paddingValues ->
+                    //TODO use space to add distances between elements (?)
+                    PokeList(
+                        paddingValues,
+                        getPokemonList(),
+                        clickAction = {
+                            renderPokemonDetails()
+                        })
                 }
             }
         }
+    }
+
+    private fun getPokemonList():List<PokemonListItem> = listOf(
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas"),
+        PokemonListItem("Bulbasaur", ""),
+        PokemonListItem("Pikachu", "sadfas")
+    )
+
+    private fun renderPokemonDetails() {
+
     }
 }
