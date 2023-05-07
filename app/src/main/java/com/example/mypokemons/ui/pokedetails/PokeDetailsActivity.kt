@@ -1,28 +1,24 @@
 package com.example.mypokemons.ui.pokedetails
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
+import com.example.mypokemons.ui.components.PokeDetailsScreen
 import com.example.mypokemons.ui.theme.MyPokemonsTheme
 
 class PokeDetailsActivity : ComponentActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    private val pokemonName by lazy { intent.getStringExtra(POKEMON_NAME_EXTRA) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContent {
             MyPokemonsTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    //TODO empty view
-                }
+                PokeDetailsScreen()
             }
         }
+    }
+
+    companion object {
+        const val POKEMON_NAME_EXTRA = "POKEMON_NAME_EXTRA"
     }
 }

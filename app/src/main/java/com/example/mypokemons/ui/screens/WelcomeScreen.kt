@@ -1,4 +1,4 @@
-package com.example.mypokemons.ui.components
+package com.example.mypokemons.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

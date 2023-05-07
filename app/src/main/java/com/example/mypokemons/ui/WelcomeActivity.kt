@@ -5,11 +5,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Surface
-import com.example.mypokemons.ui.components.WelcomeScreen
 import com.example.mypokemons.ui.pokelist.PokeListActivity
+import com.example.mypokemons.ui.screens.WelcomeScreen
 import com.example.mypokemons.ui.theme.MyPokemonsTheme
 
-class MainActivity : ComponentActivity() {
+class WelcomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setWelcomeContent()

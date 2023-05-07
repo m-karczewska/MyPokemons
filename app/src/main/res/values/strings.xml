@@ -12,6 +12,7 @@
     <string name="pokemons">Pokemons</string>
 
 <!--    region Pokemon details-->
-    <string name="name">Name</string>
+    <string name="abilities">Abilities:</string>
+    <string name="height">Height:</string>
 <!--    endregion-->
 </resources>
