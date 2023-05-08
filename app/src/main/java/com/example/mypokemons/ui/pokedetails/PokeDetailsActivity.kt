@@ -3,7 +3,7 @@ package com.example.mypokemons.ui.pokedetails
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.mypokemons.ui.components.PokeDetailsScreen
+import com.example.mypokemons.ui.screens.PokeDetailsScreen
 import com.example.mypokemons.ui.theme.MyPokemonsTheme
 
 class PokeDetailsActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class PokeDetailsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyPokemonsTheme {
-                PokeDetailsScreen()
+                PokeDetailsScreen(pokemonName ?: "")
             }
         }
     }

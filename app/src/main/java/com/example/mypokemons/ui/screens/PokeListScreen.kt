@@ -1,4 +1,4 @@
-package com.example.mypokemons.ui.components
+package com.example.mypokemons.ui.screens
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mypokemons.R
+import com.example.mypokemons.ui.components.PokeList
 import com.example.mypokemons.ui.pokelist.PokeListViewModel
 
 @Composable
@@ -24,7 +25,7 @@ fun PokeListScreen(
         val list by pokeListViewModel.pokemonList.collectAsState()
         PokeList(
             paddingValues,
-            list.pokemons,
+            list.results,
             clickAction
         )
     }

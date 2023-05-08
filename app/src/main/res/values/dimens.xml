@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_default_size">20sp</dimen>
+    <dimen name="spacing_defailt">8dp</dimen>
     <dimen name="padding_default">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="elevation_default">2dp</dimen>
+
+    <dimen name="pokemon_list_item_corner">28dp</dimen>
+    <dimen name="pokemon_avatar_size">32dp</dimen>
 </resources>

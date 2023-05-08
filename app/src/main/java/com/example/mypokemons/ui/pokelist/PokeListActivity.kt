@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.mypokemons.ui.components.PokeListScreen
 import com.example.mypokemons.ui.pokedetails.PokeDetailsActivity
+import com.example.mypokemons.ui.screens.PokeListScreen
 import com.example.mypokemons.ui.theme.MyPokemonsTheme
 
 class PokeListActivity : ComponentActivity() {

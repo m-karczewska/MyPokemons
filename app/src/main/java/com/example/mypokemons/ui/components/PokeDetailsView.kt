@@ -13,32 +13,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mypokemons.R
-import com.example.mypokemons.data.Pokemon
+import com.example.mypokemons.data.model.Pokemon
 
 @Composable
-//TODO use space to add distances between elements (?)
-//TODO adapt to different screen sizes - using maxWidth
 fun PokeDetailsView(paddingValues: PaddingValues, pokemon: Pokemon) {
     Surface(
-    modifier = Modifier
-        .fillMaxSize()
-        .padding(paddingValues),
-    color = MaterialTheme.colors.background
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues),
+        color = MaterialTheme.colors.background
     ) {
         Column {
 //            Text(text = pokemon.name, style = MaterialTheme.typography.h3)
             if (pokemon.abilities.isNotEmpty()) {
-                InfoRow(title = stringResource(id = R.string.abilities), data = pokemon.abilities.map { ability -> ability.ability.name }.toString())
+                InfoRow(
+                    title = stringResource(id = R.string.abilities),
+                    data = pokemon.abilities.map { ability -> ability.ability.name }.toString()
+                )
             }
             if (pokemon.height != null) {
-                InfoRow(title = stringResource(id = R.string.height), data = pokemon.height.toString())
+                InfoRow(
+                    title = stringResource(id = R.string.height),
+                    data = pokemon.height.toString()
+                )
             }
         }
     }
 }
 
 @Composable
-fun InfoRow(title: String, data: String){
+fun InfoRow(title: String, data: String) {
     Row {
         Text(text = title, style = MaterialTheme.typography.h6)
     }
@@ -47,7 +51,8 @@ fun InfoRow(title: String, data: String){
     }
 }
 
-@Preview @Composable
+@Preview
+@Composable
 fun PreviewPokeDetails() {
     PokeDetailsView(paddingValues = PaddingValues(), pokemon = Pokemon(0, "Bulbasaur"))
 }

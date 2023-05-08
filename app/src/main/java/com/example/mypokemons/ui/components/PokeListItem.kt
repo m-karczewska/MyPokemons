@@ -5,11 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -21,13 +23,14 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.example.mypokemons.R
 
 @Composable
 fun PokeListItem(name: String, clickAction: (String) -> Unit) {
-//    TODO add rounded corners
-    Surface(shape = MaterialTheme.shapes.medium, elevation = 2.dp) {
+    Surface(
+        shape = RoundedCornerShape(dimensionResource(R.dimen.pokemon_list_item_corner)),
+        elevation = dimensionResource(R.dimen.elevation_default)
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
@@ -35,21 +38,23 @@ fun PokeListItem(name: String, clickAction: (String) -> Unit) {
                 .wrapContentHeight()
                 .background(color = MaterialTheme.colors.secondary)
                 .clickable { clickAction(name) }
-                .padding(8.dp)
+                .padding(dimensionResource(R.dimen.padding_small))
         ) {
-            PokeAvatar(36.dp, name)
+            PokeAvatar(name)
+            Spacer(modifier = Modifier.size(dimensionResource(R.dimen.padding_default)))
             Text(
                 text = name,
-                style = MaterialTheme.typography.caption,
-                modifier = Modifier
-                    .padding(start = dimensionResource(id = R.dimen.padding_default),)
+                style = MaterialTheme.typography.caption
             )
         }
     }
 }
 
 @Composable
-fun PokeAvatar(size: Dp, name: String) {
+fun PokeAvatar(
+    name: String,
+    size: Dp = dimensionResource(R.dimen.pokemon_avatar_size)
+) {
     Box(
         Modifier
             .size(size),
@@ -59,8 +64,10 @@ fun PokeAvatar(size: Dp, name: String) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             drawCircle(SolidColor(color))
         }
-        Text(text = name.first().toString(),
-        style = MaterialTheme.typography.body1)
+        Text(
+            text = name.first().toString(),
+            style = MaterialTheme.typography.body1
+        )
     }
 }
 

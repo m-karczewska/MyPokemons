@@ -1,4 +1,4 @@
-package com.example.mypokemons.ui.components
+package com.example.mypokemons.ui.screens
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -7,11 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mypokemons.ui.components.PokeDetailsView
 import com.example.mypokemons.ui.pokedetails.PokeDetailsViewModel
+import com.example.mypokemons.ui.pokedetails.PokeDetailsViewModelFactory
 
 @Composable
 fun PokeDetailsScreen(
-    viewModel: PokeDetailsViewModel = viewModel()
+    pokemonName: String,
+    viewModel: PokeDetailsViewModel = viewModel(factory = PokeDetailsViewModelFactory(pokemonName))
 ) {
     val pokemon by viewModel.pokemon.collectAsState()
     Scaffold(
@@ -25,18 +28,3 @@ fun PokeDetailsScreen(
         )
     }
 }
-
-/*
-@Composable // stateful
-fun FeatureSecondContent(viewModel: FeatureSecondViewModel) {
-    val uiStateFlow by viewModel.uiStateFlow.collectAsState()
-    val uiState by viewModel.uiState
-
-    FeatureSecondContent(
-        uiStateFlow = uiStateFlow,
-        uiState = uiState,
-        incrementUiStateFlowInteger = viewModel::incrementUiStateFlowInteger,
-        downloadDataFromRepository = viewModel::downloadDataFromRepository,
-    )
-}
-*/
